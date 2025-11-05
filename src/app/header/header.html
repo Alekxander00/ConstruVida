@@ -1,0 +1,87 @@
+<header role="banner">
+  <nav class="navbar" role="navigation" aria-label="Navegación principal">
+    <div class="nav-container">
+      <!-- Logo -->
+      <a 
+        routerLink="/" 
+        class="logo" 
+        aria-label="Construction Life - Volver al inicio"
+        (click)="closeMenu()"
+      >
+        Construction Life
+      </a>
+
+      <!-- Menú principal -->
+      <ul class="nav-menu" [class.active]="isMenuOpen">
+        <li class="nav-item">
+          <a 
+            routerLink="/" 
+            routerLinkActive="active" 
+            [routerLinkActiveOptions]="{exact: true}"
+            aria-current="page"
+            (click)="closeMenu()"
+          >
+            Inicio
+          </a>
+        </li>
+        <li class="nav-item">
+          <a 
+            routerLink="/independientes" 
+            routerLinkActive="active"
+            (click)="closeMenu()"
+          >
+            Independientes
+          </a>
+        </li>
+        <li class="nav-item">
+          <a 
+            routerLink="/empresas" 
+            routerLinkActive="active"
+            (click)="closeMenu()"
+          >
+            Empresas
+          </a>
+        </li>
+        <li class="nav-item">
+          <a 
+            routerLink="/cotizaciones" 
+            routerLinkActive="active"
+            (click)="closeMenu()"
+          >
+            Cotizaciones
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#" (click)="closeMenu()">Blog</a>
+        </li>
+        <li class="nav-item">
+          <a href="#" (click)="closeMenu()">Contacto</a>
+        </li>
+      </ul>
+
+      <!-- Botón de usuario -->
+      <div class="nav-actions">
+        <button 
+          class="login-btn" 
+          aria-label="Iniciar sesión"
+        >
+          Iniciar sesión
+        </button>
+      </div>
+
+      <!-- Menú hamburguesa -->
+      <button 
+        class="hamburger" 
+        [class.active]="isMenuOpen"
+        (click)="toggleMenu()"
+        aria-label="Menú principal"
+        aria-expanded="{{isMenuOpen}}"
+        aria-controls="nav-menu"
+      >
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+    </div>
+  </nav>
+</header>
