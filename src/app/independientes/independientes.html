@@ -1,1 +1,150 @@
-<p>independientes works!</p>
+<app-header></app-header>
+
+<main role="main">
+  <!-- Hero Section con Búsqueda -->
+  <section class="hero" role="region" aria-labelledby="hero-title">
+    <div class="hero-content">
+      <h1 id="hero-title">Encuentra Profesionales Independientes de Confianza</h1>
+      <p class="hero-subtitle">Conecta con expertos certificados en construcción</p>
+      
+      <!-- Barra de búsqueda integrada -->
+      <div class="search-container">
+        <input 
+          type="text" 
+          class="search-input" 
+          placeholder="Buscar por profesión, servicio o ubicación..."
+          aria-label="Buscar profesionales"
+        />
+        <button class="search-btn" aria-label="Buscar">
+          Buscar
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Filtros Horizontales -->
+  <section class="filters-section" role="region" aria-labelledby="filters-title">
+    <div class="container">
+      <h2 id="filters-title" class="visually-hidden">Filtrar por categoría</h2>
+      <div class="filters-scroll">
+        <button 
+          *ngFor="let filter of filters" 
+          class="filter-chip"
+          [class.active]="filter.active"
+          (click)="toggleFilter(filter)"
+        >
+          {{filter.name}}
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Grid de Profesionales (3x2) -->
+  <section class="professionals-section" role="region" aria-labelledby="professionals-title">
+    <div class="container">
+      <h2 id="professionals-title" class="visually-hidden">Profesionales disponibles</h2>
+      
+      <div class="professionals-grid">
+        <article *ngFor="let professional of paginatedProfessionals; let i = index" 
+                 class="professional-card" 
+                 [attr.aria-labelledby]="'prof-' + i">
+          <div class="card-image-wrapper">
+            <div class="card-image-placeholder"></div>
+          </div>
+          <div class="card-body">
+            <h3 [id]="'prof-' + i" class="card-name">{{professional.name}}</h3>
+            <p class="card-specialty">{{professional.specialty}}</p>
+            <p class="card-description">{{professional.description}}</p>
+            <div class="card-footer">
+              <span class="card-rating">⭐ {{professional.rating}}</span>
+              <button class="card-btn">Ver Perfil</button>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- Paginación con puntos -->
+      <nav class="pagination" role="navigation" aria-label="Paginación de profesionales">
+        <div class="pagination-dots">
+          <button 
+            *ngFor="let page of pages" 
+            class="dot" 
+            [class.active]="page === currentPage"
+            (click)="goToPage(page)"
+            [attr.aria-label]="'Ir a página ' + page"
+            [attr.aria-current]="page === currentPage ? 'page' : null"
+          >
+          </button>
+        </div>
+      </nav>
+    </div>
+  </section>
+
+  <!-- Sección con Lista de Bullets y Formulario -->
+  <section class="bottom-section" role="region" aria-labelledby="bottom-title">
+    <div class="container">
+      <div class="bottom-grid">
+        <!-- Lista con bullets -->
+        <div class="list-column">
+          <h2 id="bottom-title">¿Por qué contratar a través de Construction Life?</h2>
+          <ul class="bullet-list">
+            <li>Profesionales verificados con documentación al día</li>
+            <li>Sistema de calificaciones y reseñas reales</li>
+            <li>Portafolio de trabajos anteriores disponible</li>
+            <li>Comunicación directa con el profesional</li>
+            <li>Presupuestos transparentes y negociables</li>
+            <li>Seguros de responsabilidad civil incluidos</li>
+            <li>Soporte y mediación en caso de conflictos</li>
+            <li>Pago seguro con garantía de satisfacción</li>
+          </ul>
+        </div>
+
+        <!-- Formulario grande -->
+        <div class="form-column">
+          <div class="large-form-card">
+            <h3>Solicita Información</h3>
+            <form>
+              <div class="form-group">
+                <input 
+                  type="text" 
+                  placeholder="Nombre completo" 
+                  class="form-input"
+                  aria-label="Nombre completo"
+                />
+              </div>
+              <div class="form-group">
+                <input 
+                  type="email" 
+                  placeholder="Correo electrónico" 
+                  class="form-input"
+                  aria-label="Correo electrónico"
+                />
+              </div>
+              <div class="form-group">
+                <input 
+                  type="tel" 
+                  placeholder="Teléfono" 
+                  class="form-input"
+                  aria-label="Teléfono"
+                />
+              </div>
+              <div class="form-group">
+                <textarea 
+                  placeholder="Describe tu proyecto o servicio que necesitas" 
+                  class="form-textarea"
+                  rows="6"
+                  aria-label="Descripción del proyecto"
+                ></textarea>
+              </div>
+              <button type="submit" class="form-submit">
+                Enviar Solicitud
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<app-footer></app-footer>

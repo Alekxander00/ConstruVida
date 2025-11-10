@@ -1,1 +1,118 @@
-<p>empresas works!</p>
+<app-header></app-header>
+
+<main role="main">
+  <!-- Hero Section 1 -->
+  <section class="hero-primary" role="region" aria-labelledby="hero-title-1">
+    <div class="hero-content">
+      <h1 id="hero-title-1">Empresas Constructoras de Confianza</h1>
+      <p class="hero-subtitle">Conecta con las mejores empresas especializadas en construcción</p>
+      <p class="hero-description">Más de 500 empresas verificadas listas para llevar tu proyecto al siguiente nivel</p>
+      <button class="cta-primary" aria-label="Explorar empresas">
+        Explorar empresas
+      </button>
+    </div>
+  </section>
+
+  <!-- Sección con Imagen y Texto -->
+  <section class="image-text-section" role="region" aria-labelledby="section-title-1">
+    <div class="container">
+      <div class="image-text-grid">
+        <!-- Imagen grande -->
+        <div class="image-column">
+          <div class="large-image-placeholder"></div>
+        </div>
+        
+        <!-- Texto con lista -->
+        <div class="text-column">
+          <h2 id="section-title-1">¿Por qué elegir una empresa constructora?</h2>
+          <p class="section-description">Las empresas constructoras ofrecen respaldo, experiencia y recursos para proyectos de cualquier escala.</p>
+          <ul class="feature-list">
+            <li>Equipos multidisciplinarios de profesionales</li>
+            <li>Recursos y maquinaria especializada</li>
+            <li>Cumplimiento de normas y regulaciones</li>
+            <li>Seguros y garantías corporativas</li>
+            <li>Experiencia en proyectos de gran escala</li>
+            <li>Gestión integral de proyectos</li>
+          </ul>
+          <button class="btn-secondary">Más información</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Hero Section 2 -->
+  <section class="hero-secondary" role="region" aria-labelledby="hero-title-2">
+    <div class="hero-content">
+      <h2 id="hero-title-2">Encuentra la Empresa Perfecta para tu Proyecto</h2>
+      <p class="hero-subtitle-alt">Filtra por especialidad, ubicación y tipo de proyecto</p>
+      <p class="hero-description-alt">Todas nuestras empresas están verificadas y certificadas</p>
+      <button class="cta-secondary" aria-label="Buscar empresas">
+        Buscar empresas
+      </button>
+    </div>
+  </section>
+
+  <!-- Grid de Empresas (3 columnas) -->
+  <section class="companies-section" role="region" aria-labelledby="companies-title">
+    <div class="container">
+      <h2 id="companies-title" class="visually-hidden">Empresas destacadas</h2>
+      
+      <div class="companies-grid">
+        <article *ngFor="let company of companies; let i = index" 
+                 class="company-card"
+                 [attr.aria-labelledby]="'company-' + i">
+          <div class="company-logo-wrapper">
+            <div class="company-logo-circle"></div>
+          </div>
+          <div class="company-info">
+            <h3 [id]="'company-' + i" class="company-name">{{company.name}}</h3>
+            <p class="company-specialty">{{company.specialty}}</p>
+            <p class="company-description">{{company.description}}</p>
+            <button class="company-btn">Ver empresa</button>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección de CTA Final -->
+  <section class="cta-final-section" role="region" aria-labelledby="cta-final-title">
+    <div class="container">
+      <div class="cta-final-content">
+        <h2 id="cta-final-title">¿Tienes una empresa constructora?</h2>
+        <p class="cta-final-text">Únete a nuestra plataforma y accede a miles de clientes potenciales</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer con 3 columnas -->
+  <section class="footer-info" role="region" aria-labelledby="footer-title">
+    <div class="container">
+      <h2 id="footer-title" class="visually-hidden">Información adicional</h2>
+      <div class="footer-info-grid">
+        <!-- Columna 1 -->
+        <div class="footer-info-column">
+          <div class="info-icon">📋</div>
+          <h3>Servicios Completos</h3>
+          <p>Desde el diseño hasta la entrega final, empresas que manejan todos los aspectos de tu proyecto.</p>
+        </div>
+        
+        <!-- Columna 2 -->
+        <div class="footer-info-column">
+          <div class="info-icon">🏆</div>
+          <h3>Calidad Certificada</h3>
+          <p>Todas las empresas cuentan con certificaciones y cumplimiento de estándares internacionales.</p>
+        </div>
+        
+        <!-- Columna 3 -->
+        <div class="footer-info-column">
+          <div class="info-icon">💼</div>
+          <h3>Proyectos Exitosos</h3>
+          <p>Portfolio comprobado de proyectos residenciales, comerciales e industriales completados.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<app-footer></app-footer>
