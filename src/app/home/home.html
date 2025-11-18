@@ -128,43 +128,23 @@
           <li>Sostenibilidad y eficiencia energética</li>
         </ul>
       </div>
-      <div class="info-form-container">
-        <div class="form-card" role="form" aria-labelledby="form-title">
-          <h3 id="form-title">Solicita tu cotización gratuita</h3>
-          <form>
-            <div class="form-group">
-              <input 
-                type="email" 
-                placeholder="Tu correo electrónico" 
-                aria-label="Correo electrónico"
-                required
-                class="form-input"
-              >
-            </div>
-            <div class="form-group">
-              <input 
-                type="tel" 
-                placeholder="Tu teléfono" 
-                aria-label="Número de teléfono"
-                class="form-input"
-              >
-            </div>
-            <div class="form-group">
-              <textarea 
-                placeholder="Describe tu proyecto" 
-                aria-label="Descripción del proyecto"
-                rows="4"
-                class="form-textarea"
-              ></textarea>
-            </div>
-            <button type="submit" class="form-submit" aria-label="Enviar solicitud de cotización">
-              Solicitar cotización
-            </button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </section>
-</main>
+     <div class="info-form-container">
+  <div class="form-card" role="region" aria-labelledby="form-title">
+    <h3 id="form-title">Solicita tu cotización gratuita</h3>
+    <p style="text-align: center; color: #7f8c8d; margin-bottom: 2rem; line-height: 1.6;">
+      Contáctanos directamente por WhatsApp y recibe atención personalizada de inmediato
+    </p>
+    <a 
+      [href]="whatsappLink" 
+      target="_blank" 
+      rel="noopener noreferrer"
+      class="form-submit" 
+      style="display: block; text-align: center; text-decoration: none;"
+      aria-label="Chatear por WhatsApp para solicitar cotización"
+    >
+      💬 Chatear por WhatsApp
+    </a>
+  </div>
+</div>
 
 <app-footer></app-footer>

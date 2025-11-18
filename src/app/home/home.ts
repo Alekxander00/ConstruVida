@@ -11,6 +11,13 @@ import { FooterComponent } from '../footer/footer';
   styleUrls: ['./home.css']
 })
 export class HomeComponent {
+  // Tu número de WhatsApp (sin espacios, con código de país sin el +)
+  // Ejemplo: 573001234567 para Colombia
+  whatsappNumber = '573195752917'; // CAMBIA ESTE NÚMERO POR EL TUYO
+  
+  // Mensaje predeterminado que aparecerá en WhatsApp
+  whatsappMessage = 'Hola, me gustaría solicitar una cotización gratuita para mi proyecto de construcción.';
+
   features = [
     {
       icon: '🏗️',
@@ -120,5 +127,16 @@ export class HomeComponent {
 
   get pages() {
     return Array.from({length: this.totalPages}, (_, i) => i + 1);
+  }
+
+  // Método para generar el enlace de WhatsApp
+  get whatsappLink() {
+    const encodedMessage = encodeURIComponent(this.whatsappMessage);
+    return `https://wa.me/${this.whatsappNumber}?text=${encodedMessage}`;
+  }
+
+  // Método alternativo si prefieres abrir WhatsApp con un click
+  openWhatsApp() {
+    window.open(this.whatsappLink, '_blank');
   }
 }
