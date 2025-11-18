@@ -1,150 +1,163 @@
 <app-header></app-header>
 
 <main role="main">
-  <!-- Hero Section con Búsqueda -->
-  <section class="hero" role="region" aria-labelledby="hero-title">
-    <div class="hero-content">
-      <h1 id="hero-title">Encuentra Profesionales Independientes de Confianza</h1>
-      <p class="hero-subtitle">Conecta con expertos certificados en construcción</p>
-      
-      <!-- Barra de búsqueda integrada -->
-      <div class="search-container">
-        <input 
-          type="text" 
-          class="search-input" 
-          placeholder="Buscar por profesión, servicio o ubicación..."
-          aria-label="Buscar profesionales"
-        />
-        <button class="search-btn" aria-label="Buscar">
-          Buscar
-        </button>
-      </div>
+<div class="page-container">
+
+
+  <section class="hero hero--left">
+    <div class="hero__bg">
+      <img src="https://img.freepik.com/foto-gratis/hombre-atractivo-hipster-usando-dispositivos-trabajando-computadora-portatil-tableta_285396-1630.jpg?semt=ais_hybrid&w=740&q=80" alt="Banner" class="hero__img">
+      <div class="hero__overlay"></div>
     </div>
+
+    <div class="hero__content hero__content--left">
+      <h1 class="hero__title">Motivos o ventajas de afiliarse como independiente</h1>
+      <button class="btn btn--primary hero__cta">
+        Quiero recibir más información
+      </button>
+      </div>
   </section>
 
-  <!-- Filtros Horizontales -->
-  <section class="filters-section" role="region" aria-labelledby="filters-title">
-    <div class="container">
-      <h2 id="filters-title" class="visually-hidden">Filtrar por categoría</h2>
-      <div class="filters-scroll">
+    <section class="section">
+        <h2 class="section-title">EPS DISPONIBLES</h2>
+        <p class="section-subtitle">Aquí puedes ver la lista de EPS habilitadas.</p>
+
+    <div class="grid grid--auto">
+      <article *ngFor="let item of paginatedCards; let i = index" class="card" role="article" [attr.aria-labelledby]="'card-' + i">
+        <div class="card__image">
+          <img [src]="item.image" [alt]="'Imagen del proyecto: ' + item.title" class="card__img">
+        </div>
+        <div class="card__content">
+          <h3 [id]="'card-' + i" class="card__title">
+            <a href="/proyecto" [attr.aria-label]="'Ver detalles del proyecto: ' + item.title">
+              {{item.title}}
+            </a>
+          </h3>
+        </div>
+      </article>
+    </div>
+
+    <nav class="pagination" role="navigation" aria-label="Paginación de proyectos">
+      <button 
+        class="pagination__btn pagination__btn--prev" 
+        (click)="prevPage()" 
+        [disabled]="currentPage === 1"
+        aria-label="Página anterior"
+      >
+        ‹
+      </button>
+      
+      <div class="pagination__dots">
         <button 
-          *ngFor="let filter of filters" 
-          class="filter-chip"
-          [class.active]="filter.active"
-          (click)="toggleFilter(filter)"
+          *ngFor="let page of pages" 
+          class="pagination__btn" 
+          [class.is-active]="page === currentPage"
+          (click)="goToPage(page)"
+          [attr.aria-label]="'Ir a página ' + page"
+          [attr.aria-current]="page === currentPage ? 'page' : null"
         >
-          {{filter.name}}
+          {{page}}
         </button>
       </div>
-    </div>
-  </section>
-
-  <!-- Grid de Profesionales (3x2) -->
-  <section class="professionals-section" role="region" aria-labelledby="professionals-title">
-    <div class="container">
-      <h2 id="professionals-title" class="visually-hidden">Profesionales disponibles</h2>
       
-      <div class="professionals-grid">
-        <article *ngFor="let professional of paginatedProfessionals; let i = index" 
-                 class="professional-card" 
-                 [attr.aria-labelledby]="'prof-' + i">
-          <div class="card-image-wrapper">
-            <div class="card-image-placeholder"></div>
-          </div>
-          <div class="card-body">
-            <h3 [id]="'prof-' + i" class="card-name">{{professional.name}}</h3>
-            <p class="card-specialty">{{professional.specialty}}</p>
-            <p class="card-description">{{professional.description}}</p>
-            <div class="card-footer">
-              <span class="card-rating">⭐ {{professional.rating}}</span>
-              <button class="card-btn">Ver Perfil</button>
-            </div>
-          </div>
-        </article>
-      </div>
-
-      <!-- Paginación con puntos -->
-      <nav class="pagination" role="navigation" aria-label="Paginación de profesionales">
-        <div class="pagination-dots">
-          <button 
-            *ngFor="let page of pages" 
-            class="dot" 
-            [class.active]="page === currentPage"
-            (click)="goToPage(page)"
-            [attr.aria-label]="'Ir a página ' + page"
-            [attr.aria-current]="page === currentPage ? 'page' : null"
-          >
-          </button>
+      <button 
+        class="pagination__btn pagination__btn--next" 
+        (click)="nextPage()" 
+        [disabled]="currentPage === totalPages"
+        aria-label="Página siguiente"
+      >
+        ›
+      </button>
+    </nav>
+    </section>
+    <section class="curved-section">
+      <div class="curved__content">
+      <img src="https://forbeslongevitycenter.com/wp-content/uploads/2025/11/Omniwave1-1024x633.jpg" alt="Asistencia en línea" class="curved__imgInde">
+      <div class="curved__overlay"></div>
         </div>
-      </nav>
+    </section>
+
+    <section class="section section--gray">
+      <div>
+        <h2 class="section-title">Pensiones disponibles</h2>
+
+        <div class="grid grid--auto">
+      <article *ngFor="let item of paginatedCardsP; let i = index" class="card" role="article" [attr.aria-labelledby]="'card-' + i">
+        <div class="card__image">
+          <img [src]="item.image" [alt]="'Imagen del proyecto: ' + item.title" class="card__img">
+          <span class="card__badge" aria-hidden="true">Nuevo</span>
+        </div>
+        <div class="card__content">
+          <h3 [id]="'card-' + i" class="card__title">
+            <a href="/proyecto" [attr.aria-label]="'Ver detalles del proyecto: ' + item.title">
+              {{item.title}}
+            </a>
+          </h3>
+        </div>
+      </article>
     </div>
-  </section>
 
-  <!-- Sección con Lista de Bullets y Formulario -->
-  <section class="bottom-section" role="region" aria-labelledby="bottom-title">
-    <div class="container">
-      <div class="bottom-grid">
-        <!-- Lista con bullets -->
-        <div class="list-column">
-          <h2 id="bottom-title">¿Por qué contratar a través de Construction Life?</h2>
-          <ul class="bullet-list">
-            <li>Profesionales verificados con documentación al día</li>
-            <li>Sistema de calificaciones y reseñas reales</li>
-            <li>Portafolio de trabajos anteriores disponible</li>
-            <li>Comunicación directa con el profesional</li>
-            <li>Presupuestos transparentes y negociables</li>
-            <li>Seguros de responsabilidad civil incluidos</li>
-            <li>Soporte y mediación en caso de conflictos</li>
-            <li>Pago seguro con garantía de satisfacción</li>
-          </ul>
-        </div>
-
-        <!-- Formulario grande -->
-        <div class="form-column">
-          <div class="large-form-card">
-            <h3>Solicita Información</h3>
-            <form>
-              <div class="form-group">
-                <input 
-                  type="text" 
-                  placeholder="Nombre completo" 
-                  class="form-input"
-                  aria-label="Nombre completo"
-                />
-              </div>
-              <div class="form-group">
-                <input 
-                  type="email" 
-                  placeholder="Correo electrónico" 
-                  class="form-input"
-                  aria-label="Correo electrónico"
-                />
-              </div>
-              <div class="form-group">
-                <input 
-                  type="tel" 
-                  placeholder="Teléfono" 
-                  class="form-input"
-                  aria-label="Teléfono"
-                />
-              </div>
-              <div class="form-group">
-                <textarea 
-                  placeholder="Describe tu proyecto o servicio que necesitas" 
-                  class="form-textarea"
-                  rows="6"
-                  aria-label="Descripción del proyecto"
-                ></textarea>
-              </div>
-              <button type="submit" class="form-submit">
-                Enviar Solicitud
-              </button>
-            </form>
-          </div>
-        </div>
+    <nav class="pagination" role="navigation" aria-label="Paginación de proyectos">
+      <button 
+        class="pagination__btn pagination__btn--prev" 
+        (click)="prevPage()" 
+        [disabled]="currentPage === 1"
+        aria-label="Página anterior"
+      >
+        ‹
+      </button>
+      
+      <div class="pagination__dots">
+        <button 
+          *ngFor="let page of pages" 
+          class="pagination__btn" 
+          [class.is-active]="page === currentPage"
+          (click)="goToPage(page)"
+          [attr.aria-label]="'Ir a página ' + page"
+          [attr.aria-current]="page === currentPage ? 'page' : null"
+        >
+          {{page}}
+        </button>
       </div>
-    </div>
-  </section>
+      
+      <button 
+        class="pagination__btn pagination__btn--next" 
+        (click)="nextPage()" 
+        [disabled]="currentPage === totalPages"
+        aria-label="Página siguiente"
+      >
+        ›
+      </button>
+    </nav>
+      </div>
+        
+    </section>
+
+
+  <section class="section section--empty">
+
+  <h2 class="section-title">¿LOREM IPSUM DOLOR?</h2>
+  <p class="section-subtitle">Lorem ipsum dolor sit</p>
+
+  <button class="btn btn--secondary">Ver mas</button>
+
+  <hr class="divider">
+
+</section>
+
+
+    <section class="section">
+        <h2 class="section-title">Requisitos para la afiliación</h2>
+
+        <ul class="list list--requirements">
+            <li *ngFor="let req of requisitos">{{ req }}</li>
+        </ul>
+
+        <div class="button-group">
+            <button class="btn btn--primary" routerLink="/cotizaciones">¿Quieres cotizar?</button>
+        </div>
+    </section>
+</div>
 </main>
 
 <app-footer></app-footer>

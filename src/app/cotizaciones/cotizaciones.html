@@ -1,113 +1,40 @@
 <app-header></app-header>
 
 <main role="main">
-  <!-- Hero Section con formulario -->
-  <section class="hero-form-section" role="region" aria-labelledby="hero-title">
-    <div class="hero-form-container">
-      <div class="hero-form-content">
-        <h1 id="hero-title">Solicita tu Cotización Gratuita</h1>
-        <p class="hero-form-subtitle">Recibe propuestas de profesionales y empresas en 24 horas</p>
-        <p class="hero-form-description">Completa el formulario y te conectaremos con los mejores expertos</p>
-        
-        <!-- Formulario en el hero -->
-        <form class="hero-form" aria-label="Formulario de cotización">
-          <div class="form-row">
-            <input 
-              type="text" 
-              placeholder="Nombre completo" 
-              class="form-input-hero"
-              aria-label="Nombre completo"
-              required
-            />
-          </div>
-          <div class="form-row">
-            <input 
-              type="email" 
-              placeholder="Correo electrónico" 
-              class="form-input-hero"
-              aria-label="Correo electrónico"
-              required
-            />
-          </div>
-          <div class="form-row">
-            <input 
-              type="tel" 
-              placeholder="Teléfono" 
-              class="form-input-hero"
-              aria-label="Teléfono"
-              required
-            />
-          </div>
-        </form>
-      </div>
+
+ <section class="hero hero--left">
+  <div class="hero__bg">
+    <img src="https://i.pinimg.com/1200x/8f/29/e5/8f29e5f0bb9b0796bdd49fd99a19a2ec.jpg" alt="Banner" class="hero__img">
+    <div class="hero__overlay"></div>
+  </div>
+
+  <div class="hero__content hero__content--left">
+    <h1 class="hero__title">Lorem ipsum dolor sit amet, conts</h1>
+
+    <div class="hero__actions">
+      <button class="btn btn--plan">SOLICITAR COTIZACIÓN</button>
+      <button class="btn btn--plan">VER PLANES DISPONIBLES</button>
+    </div>
+  </div>
+</section>
+
+
+  <section class="cotizaciones-section">
+    <h2 class="cotizaciones-section__title">PLANES PARA TODOS</h2>
+    <p class="cotizaciones-section__subtitle">Consulta nuestros planes</p>
+
+    <div class="cotizaciones-section__grid">
+      <article class="plan-card" *ngFor="let plan of plans">
+        <h3 class="plan-card__title">{{plan.title}}</h3>
+        <ul class="plan-card__list">
+          <li class="plan-card__list-item" *ngFor="let item of plan.items">{{item}}</li>
+        </ul>
+        <button class="btn btn--plan plan-card__cta">Me interesa</button>
+      </article>
     </div>
   </section>
 
-  <!-- Cards de servicios (3 columnas con bordes redondeados) -->
-  <section class="services-section" role="region" aria-labelledby="services-title">
-    <div class="container">
-      <h2 id="services-title" class="visually-hidden">Servicios disponibles</h2>
-      
-      <div class="services-grid">
-        <article *ngFor="let service of services; let i = index" 
-                 class="service-card-rounded"
-                 [attr.aria-labelledby]="'service-' + i">
-          <div class="service-image-wrapper">
-            <div class="service-image-placeholder"></div>
-          </div>
-          <div class="service-content">
-            <h3 [id]="'service-' + i" class="service-title">{{service.title}}</h3>
-            <p class="service-description">{{service.description}}</p>
-            <ul class="service-features">
-              <li *ngFor="let feature of service.features">{{feature}}</li>
-            </ul>
-            <button class="service-btn">{{service.buttonText}}</button>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
 
-  <!-- CTA Section centrada -->
-  <section class="cta-center-section" role="region" aria-labelledby="cta-title">
-    <div class="container">
-      <div class="cta-center-content">
-        <h2 id="cta-title">¿Necesitas ayuda para definir tu proyecto?</h2>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer Info (2 columnas: texto largo + 3 items con iconos) -->
-  <section class="footer-dual-section" role="region" aria-labelledby="footer-dual-title">
-    <div class="container">
-      <h2 id="footer-dual-title" class="visually-hidden">Información adicional</h2>
-      
-      <div class="footer-dual-grid">
-        <!-- Columna izquierda: Texto largo -->
-        <div class="footer-text-column">
-          <h3>¿Cómo funciona nuestro servicio de cotizaciones?</h3>
-          <p>Nuestro proceso es simple y transparente. Una vez que completas el formulario con los detalles de tu proyecto, nuestro sistema lo distribuye automáticamente a profesionales y empresas verificadas que coinciden con tus necesidades.</p>
-          <p>En las próximas 24 horas comenzarás a recibir propuestas personalizadas. Cada cotización incluye detalles del alcance del trabajo, tiempos estimados y costos desglosados.</p>
-          <p>Podrás revisar los perfiles de cada profesional o empresa, ver sus trabajos anteriores, leer reseñas de otros clientes y comparar propuestas lado a lado.</p>
-          <p>Una vez que elijas la propuesta que mejor se ajuste a tu presupuesto y expectativas, podrás contactar directamente con el profesional a través de nuestra plataforma.</p>
-          <p>No hay costos ocultos ni comisiones por solicitar cotizaciones. El servicio es completamente gratuito para ti.</p>
-        </div>
-        
-        <!-- Columna derecha: 3 items con iconos circulares -->
-        <div class="footer-items-column">
-          <div class="footer-item" *ngFor="let benefit of benefits; let i = index">
-            <div class="footer-item-icon">
-              <span class="icon-circle">{{benefit.icon}}</span>
-            </div>
-            <div class="footer-item-text">
-              <h4>{{benefit.title}}</h4>
-              <p>{{benefit.description}}</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 </main>
 
 <app-footer></app-footer>

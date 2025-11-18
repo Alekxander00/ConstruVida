@@ -1,170 +1,94 @@
 <app-header></app-header>
 
 <main role="main">
-  <!-- Hero Section -->
-  <section class="hero" role="region" aria-labelledby="hero-title">
-    <div class="hero-content">
-      <h1 id="hero-title">Construimos los espacios donde vivirás tus sueños</h1>
-      <p class="hero-subtitle">Más de 15 años transformando ideas en hogares y proyectos en realidades</p>
-      <p class="hero-description">Expertos en construcción residencial, comercial e industrial con los más altos estándares de calidad</p>
-      <button class="cta-primary" aria-label="Solicitar consulta gratuita">
-        Solicitar consulta gratuita
-      </button>
-    </div>
-  </section>
+  
+<section class="hero hero--left">
 
-  <!-- Features Section -->
-  <section class="features" role="region" aria-labelledby="features-title">
-    <h2 id="features-title" class="visually-hidden">Nuestras ventajas</h2>
-    <div class="features-container">
-      <div class="features-grid">
-        <article *ngFor="let item of features; let i = index" class="feature-card" role="listitem" [attr.aria-labelledby]="'feature-' + i">
-          <div class="feature-icon">{{item.icon}}</div>
-          <h3 [id]="'feature-' + i">{{item.title}}</h3>
-          <p>{{item.description}}</p>
-        </article>
-      </div>
-      <aside class="features-sidebar" role="complementary">
-        <div class="sidebar-card" aria-label="Testimonio de cliente">
-          <h3>Lo que dicen nuestros clientes</h3>
-          <p>"Transformaron completamente nuestra visión en una casa espectacular. Profesionales de primer nivel."</p>
-          <span class="client-name">- María González</span>
-        </div>
-        <div class="sidebar-card">
-          <h3>Proyectos destacados</h3>
-          <p>Más de 200 proyectos entregados satisfactoriamente en los últimos 3 años</p>
-          <button class="btn-secondary" aria-label="Ver todos los proyectos">Ver proyectos</button>
-        </div>
-      </aside>
-    </div>
-  </section>
+  <div class="hero__bg">
+    <img src="https://img.freepik.com/foto-gratis/tres-trabajadores-fabrica-sombreros-seguridad-discutiendo-plan-fabricacion_1303-30650.jpg?semt=ais_hybrid&w=740&q=80" alt="Banner" class="hero__img">
+    <div class="hero__overlay"></div>
+  </div>
 
-  <!-- Curved Section -->
-  <section class="curved-section" role="region" aria-labelledby="curved-title">
-    <div class="curved-content">
-      <h2 id="curved-title" class="visually-hidden">Contacta con nuestro equipo</h2>
-      <p class="curved-text">¿Tienes un terreno o proyecto en mente? Nuestro equipo de arquitectos e ingenieros está listo para ayudarte</p>
-      <button class="cta-curved" aria-label="Contactar con nuestro equipo de especialistas">
-        Contactar especialistas
-      </button>
-    </div>
-  </section>
+  <div class="hero__content hero__content--left">
+    <h1 class="hero__title">
+      "Nos encargamos de tus trámites ante EPS, ARL, pensiones y demás entidades de la Seguridad Social."
+    </h1>
 
-  <!-- Cards Grid Section -->
-  <section class="cards-section" role="region" aria-labelledby="cards-title">
-    <h2 id="cards-title">Proyectos Destacados</h2>
-    <p class="section-subtitle">Descubre algunos de nuestros trabajos más recientes</p>
-    
-    <div class="cards-grid">
-      <article *ngFor="let item of paginatedCards; let i = index" class="project-card" role="article" [attr.aria-labelledby]="'card-' + i">
-        <div class="card-image-container">
-          <img [src]="item.image" [alt]="'Imagen del proyecto: ' + item.title" class="card-image">
-          <span class="card-badge" aria-hidden="true">Nuevo</span>
-        </div>
-        <div class="card-content">
-          <h3 [id]="'card-' + i">
-            <a href="/proyecto" [attr.aria-label]="'Ver detalles del proyecto: ' + item.title">
-              {{item.title}}
-            </a>
-          </h3>
-          <p class="card-description">{{item.description}}</p>
-          <div class="card-meta">
-            <span class="card-date">{{item.date}}</span>
-            <span class="card-category">{{item.category}}</span>
-          </div>
-        </div>
-      </article>
-    </div>
+    <button class="btn btn--primary hero__cta">Quiero recibir más información</button>
+  </div>
 
-    <!-- Pagination -->
-    <nav class="pagination" role="navigation" aria-label="Paginación de proyectos">
-      <button 
-        class="pagination-btn" 
-        (click)="prevPage()" 
-        [disabled]="currentPage === 1"
-        aria-label="Página anterior"
-      >
-        ‹
-      </button>
+</section>
+
+<section class="features-section">
+  <div class="container">
+    <div class="features__grid">
       
-      <div class="pagination-dots">
-        <button 
-          *ngFor="let page of pages" 
-          class="pagination-dot" 
-          [class.active]="page === currentPage"
-          (click)="goToPage(page)"
-          [attr.aria-label]="'Ir a página ' + page"
-          [attr.aria-current]="page === currentPage ? 'page' : null"
-        >
-          {{page}}
-        </button>
+      <div class="features__card">
+        <h2 class="features__card-title">Encuentra el servicio ideal para ti</h2>
+        <p class="features__card-text">
+          Tanto independientes como empresas cuentan con nuestro apoyo para gestionar afiliaciones, 
+          novedades y trámites ante la Seguridad Social de forma rápida, segura y sin complicaciones. 
+          Selecciona tu perfil y comienza ahora.
+        </p>
       </div>
-      
-      <button 
-        class="pagination-btn" 
-        (click)="nextPage()" 
-        [disabled]="currentPage === totalPages"
-        aria-label="Página siguiente"
-      >
-        ›
-      </button>
-    </nav>
-  </section>
 
-  <!-- Info Section -->
-  <section class="info-section" role="region" aria-labelledby="info-title">
-    <div class="info-container">
-      <div class="info-content">
-        <h2 id="info-title">¿Por qué elegir Construction Life?</h2>
-        <p class="info-subtitle">Somos tu partner ideal para cualquier proyecto constructivo</p>
-        <ul class="benefits-list" role="list">
-          <li>Más de 15 años de experiencia en el sector</li>
-          <li>Equipo multidisciplinario de arquitectos e ingenieros</li>
-          <li>Presupuestos transparentes sin costos ocultos</li>
-          <li>Cumplimiento estricto de plazos de entrega</li>
-          <li>Materiales de primera calidad con garantía</li>
-          <li>Soporte post-obra y mantenimiento</li>
-          <li>Financiamiento flexible adaptado a tus necesidades</li>
-          <li>Sostenibilidad y eficiencia energética</li>
-        </ul>
-      </div>
-      <div class="info-form-container">
-        <div class="form-card" role="form" aria-labelledby="form-title">
-          <h3 id="form-title">Solicita tu cotización gratuita</h3>
-          <form>
-            <div class="form-group">
-              <input 
-                type="email" 
-                placeholder="Tu correo electrónico" 
-                aria-label="Correo electrónico"
-                required
-                class="form-input"
-              >
-            </div>
-            <div class="form-group">
-              <input 
-                type="tel" 
-                placeholder="Tu teléfono" 
-                aria-label="Número de teléfono"
-                class="form-input"
-              >
-            </div>
-            <div class="form-group">
-              <textarea 
-                placeholder="Describe tu proyecto" 
-                aria-label="Descripción del proyecto"
-                rows="4"
-                class="form-textarea"
-              ></textarea>
-            </div>
-            <button type="submit" class="form-submit" aria-label="Enviar solicitud de cotización">
-              Solicitar cotización
-            </button>
-          </form>
+      <div class="features__images">
+        
+        <div class="feature-card">
+          <img src="https://www.valoraanalitik.com/wp-content/uploads/2021/01/trabajador-independiente-1200x750-1.jpg" alt="Independiente" class="feature-card__img">
+          <button class="btn btn--yellow feature-card__cta">Independiente</button>
         </div>
+
+        <div class="feature-card">
+          <img src="https://www.sesamehr.co/wp-content/uploads/2022/01/base-datos-trabajadores-empresa.webp" alt="Empresa" class="feature-card__img">
+          <button class="btn btn--yellow feature-card__cta">Empresa</button>
+        </div>
+
       </div>
+
     </div>
-  </section>
+  </div>
+</section>
+
+
+<section class="curved-section">
+  <div class="curved__content">
+  <img src="https://static.vecteezy.com/system/resources/previews/008/740/772/large_2x/team-of-business-people-working-together-in-the-meeting-room-office-teamwork-background-charts-and-graphs-banner-double-exposure-successful-teamwork-business-planning-concept-free-photo.jpg" alt="Asistencia en línea" class="curved__imgInde">
+  <div class="curved__overlay"></div>
+  <button class="btn btn--secondary curved__cta">
+    Asistencia en Línea
+  </button>
+    </div>
+
+</section>
+
+
+<section class="insurance-section" role="region" aria-labelledby="insurance-title">
+  <h2 id="insurance-title" class="insurance__title">Our Insurance Package</h2>
+  <p class="insurance__subtitle">
+    Tailored plans to meet your needs—pick the one that suits you!
+  </p>
+
+  <div class="insurance__grid">
+    <article
+      *ngFor="let pkg of insurancePackages; let i = index"
+      class="insurance-card"
+      role="article"
+      [attr.aria-labelledby]="'pkg-' + i"
+    >
+      <div class="insurance-card__icon">{{ pkg.icon }}</div>
+
+      <h3 [id]="'pkg-' + i" class="insurance-card__title">
+        {{ pkg.title }}
+      </h3>
+
+      <p class="insurance-card__description">
+        {{ pkg.description }}
+      </p>
+
+    </article>
+  </div>
+</section>
 </main>
 
 <app-footer></app-footer>
