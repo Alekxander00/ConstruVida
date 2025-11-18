@@ -8,60 +8,37 @@ import { FooterComponent } from '../footer/footer';
   standalone: true,
   imports: [CommonModule, HeaderComponent, FooterComponent],
   templateUrl: './cotizaciones.html',
-  styleUrl: './cotizaciones.css',
 })
 export class Cotizaciones {
-  services = [
+
+  plans = [
     {
-      title: 'Construcción Nueva',
-      description: 'Para proyectos desde cero',
-      features: [
-        'Diseño arquitectónico',
-        'Planos estructurales',
-        'Construcción completa',
-        'Acabados finales'
-      ],
-      buttonText: 'Solicitar cotización'
+      title: 'Plan 1',
+      items: [
+        'EPS Y ARL',
+        'Aplica para:',
+        'Mujeres mayores de 57 años y hombres mayores de 62 años.',
+        'Extranjeros no obligados a cotizar pensión en Colombia'
+      ]
     },
     {
-      title: 'Remodelación',
-      description: 'Transforma tu espacio actual',
-      features: [
-        'Diseño de interiores',
-        'Demoliciones necesarias',
-        'Nuevas instalaciones',
-        'Acabados premium'
-      ],
-      buttonText: 'Solicitar cotización'
+      title: 'Plan 2',
+      items: [
+        'SALUD, PENSION Y ARL ',
+        'Aplica para: ',
+        'Independientes,  contratistas y voluntarios.(OPS)',
+        'Nivel 1,2,3,4 y 5'
+      ]
     },
     {
-      title: 'Mantenimiento',
-      description: 'Servicios especializados',
-      features: [
-        'Reparaciones eléctricas',
-        'Plomería y gas',
-        'Pintura y acabados',
-        'Trabajos en altura'
-      ],
-      buttonText: 'Solicitar cotización'
+      title: 'Plan 3',
+      items: [
+        'SALUD, PENSION, ARL, CAJA DE COMPENSACION FAMILIAR Y SESANTIAS',
+        'Aplica para: ',
+        'Empleados y empresas'
+      ]
     }
   ];
 
-  benefits = [
-    {
-      icon: '⚡',
-      title: 'Respuesta Rápida',
-      description: 'Recibe las primeras propuestas en menos de 24 horas'
-    },
-    {
-      icon: '✓',
-      title: 'Profesionales Verificados',
-      description: 'Solo trabajamos con expertos certificados y con experiencia comprobada'
-    },
-    {
-      icon: '💯',
-      title: '100% Gratuito',
-      description: 'No pagas nada por solicitar cotizaciones. Sin comisiones ocultas'
-    }
-  ];
+
 }

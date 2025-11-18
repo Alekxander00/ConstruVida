@@ -8,9 +8,9 @@ import { FooterComponent } from '../footer/footer';
   standalone: true,
   imports: [CommonModule, HeaderComponent, FooterComponent],
   templateUrl: './home.html',
-  styleUrls: ['./home.css']
 })
 export class HomeComponent {
+<<<<<<< HEAD
   // Tu número de WhatsApp (sin espacios, con código de país sin el +)
   // Ejemplo: 573001234567 para Colombia
   whatsappNumber = '573195752917'; // CAMBIA ESTE NÚMERO POR EL TUYO
@@ -103,14 +103,38 @@ export class HomeComponent {
     const start = (this.currentPage - 1) * this.itemsPerPage;
     const end = start + this.itemsPerPage;
     return this.cards.slice(start, end);
+=======
+  insurancePackages = [
+  {
+    icon: '⚡',
+    title: 'Basic Coverage',
+    description: 'Essential protection for your peace of mind at an affordable price.',
+    
+  },
+  {
+    icon: '🏅',
+    title: 'Standard Coverage',
+    description: 'A balanced plan offering enhanced protection and value.',
+    
+  },
+  {
+    icon: '👑',
+    title: 'Premium Coverage',
+    description: 'Comprehensive coverage with exclusive benefits for total security.',
+   
+  },
+  {
+    icon: '🧩',
+    title: 'Custom Coverage',
+    description: 'Build your own plan—choose the features that matter most to you!',
+    
+>>>>>>> cda553a911c58881cc50e84161b4d7ba0a34517e
   }
+];
 
-  nextPage() {
-    if (this.currentPage * this.itemsPerPage < this.cards.length) {
-      this.currentPage++;
-    }
-  }
+}
 
+<<<<<<< HEAD
   prevPage() {
     if (this.currentPage > 1) {
       this.currentPage--;
@@ -140,3 +164,5 @@ export class HomeComponent {
     window.open(this.whatsappLink, '_blank');
   }
 }
+=======
+>>>>>>> cda553a911c58881cc50e84161b4d7ba0a34517e
